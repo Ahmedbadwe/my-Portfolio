@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmed El-Badawy Aboghara — Executive Portfolio & BI Dashboard</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Cairo"', '"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            dark: {
+              950: '#07070b',
+              900: '#0c0d14',
+              850: '#11121d',
+              800: '#171826',
+              700: '#23253a',
+            },
+            brand: {
+              cyan: '#06b6d4',
+              violet: '#8b5cf6',
+              emerald: '#10b981',
+              amber: '#f59e0b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #07070b;
+      color: #f1f5f9;
+      font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0c0d14; }
+    ::-webkit-scrollbar-thumb { background: #23253a; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
+
+    .glow-cyan {
+      box-shadow: 0 0 50px -10px rgba(6, 182, 212, 0.35);
+    }
+    .glow-violet {
+      box-shadow: 0 0 50px -10px rgba(139, 92, 246, 0.35);
+    }
+    .glow-emerald {
+      box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.35);
+    }
+    .glass-card {
+      background: rgba(17, 18, 29, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card:hover {
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+    .aspect-reel {
+      aspect-ratio: 9 / 16;
+    }
+  </style>
+</head>
+<body class="selection:bg-cyan-500/30 selection:text-cyan-200">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 glass-card border-b border-white/5 bg-dark-950/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-violet-500 p-0.5 flex items-center justify-center shadow-lg">
+          <div class="w-full h-full bg-dark-900 rounded-[10px] flex items-center justify-center font-bold text-cyan-400 mono">AB</div>
+        </div>
+        <div>
+          <span class="font-extrabold text-lg text-white tracking-wide block leading-tight">Ahmed El-Badawy</span>
+          <span class="text-xs text-slate-400 font-mono">Data Analyst & Media Technologist</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#analytics-dashboard" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+          داشبورد تحليل البيانات
+        </a>
+        <a href="#anime-reels" class="hover:text-violet-400 transition-colors">ريلز الأنمي والسرد</a>
+        <a href="#science-reels" class="hover:text-emerald-400 transition-colors">ريلز العلوم والسبورة</a>
+        <a href="#automation" class="hover:text-amber-400 transition-colors">أتمتة النشر والضغط</a>
+        <a href="executive_resume_interactive_print_ready.html" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 text-white font-mono text-xs transition-all">
+          السيرة الذاتية PDF ↗
+        </a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="https://drive.google.com/drive/folders/1cbWgeVWc-UtrTsbgrhTIijmBhN5KlFUI?usp=sharing" target="_blank" class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-xs font-bold shadow-md shadow-cyan-500/20 transition-all flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+          Google Drive Portfolio
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative pt-16 pb-20 overflow-hidden border-b border-white/5">
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-cyan-500/15 via-violet-500/10 to-transparent blur-3xl pointer-events-none rounded-full"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card text-cyan-300 text-xs font-semibold mb-6 border border-cyan-500/20">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          متاح للتعاقد والعمل عن بُعد • Remote & Hybrid Ready
+        </div>
+        
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-6">
+          تحليل البيانات، ذكاء الأعمال،
+          <span class="bg-gradient-to-r from-cyan-400 via-indigo-300 to-violet-400 bg-clip-text text-transparent block mt-2">
+            وهندسة المحتوى الرقمي المتكامل
+          </span>
+        </h1>
+        
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 max-w-2xl mx-auto">
+          أدمج بين <strong>التحليل الإحصائي المتقدم وبناء الداشبوردات التنفيذية (BI Dashboards)</strong> لترشيد القرارات المؤسسية، وبين <strong>إنتاج سلاسل الفيديوهات القصيرة عالية الاستبقاء (Reels/Shorts)</strong> وأتمتة النشر الرقمي الشامل.
+        </p>
+
+        <!-- Metric Badges -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto text-right">
+          <div class="glass-card p-4 rounded-2xl">
+            <span class="text-2xl sm:text-3xl font-black text-cyan-400 mono block">96</span>
+            <span class="text-xs text-slate-400 font-medium">كادر وظيفي تم تحليلهم في WO-HR-001</span>
+          </div>
+          <div class="glass-card p-4 rounded-2xl">
+            <span class="text-2xl sm:text-3xl font-black text-emerald-400 mono block">89.4%</span>
+            <span class="text-xs text-slate-400 font-medium">نسبة ضغط الفيديو دون فقدان جودة 1080p</span>
+          </div>
+          <div class="glass-card p-4 rounded-2xl">
+            <span class="text-2xl sm:text-3xl font-black text-violet-400 mono block">-14.7</span>
+            <span class="text-xs text-slate-400 font-medium">LUFS معيار هندسة الصوت المعتمد للبث</span>
+          </div>
+          <div class="glass-card p-4 rounded-2xl">
+            <span class="text-2xl sm:text-3xl font-black text-amber-400 mono block">100%</span>
+            <span class="text-xs text-slate-400 font-medium">أتمتة النشر الفوري عبر 4 منصات</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 📊 SECTION 1: LIVE INTERACTIVE BI DASHBOARD -->
+  <!-- ========================================== -->
+  <section id="analytics-dashboard" class="py-20 border-b border-white/5 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-500/10 text-cyan-400 text-xs font-bold mono uppercase tracking-wider mb-2 border border-cyan-500/20">
+            📊 Live Case Study • WO-HR-001
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black text-white">
+            لوحة المؤشرات والتحليل التنفيذي للقوى العاملة (Workforce Analytics)
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+            دراسة حالة تطبيقية مبنية مباشرة على بيانات الملف الفعلي: <span class="mono text-cyan-300">تقرير_تحليل_القوى_العاملة_التفاعلي_WO-HR-001.xlsx</span>
+          </p>
+        </div>
+
+        <!-- Download Dataset Button -->
+        <div class="flex items-center gap-2">
+          <a href="file:///C:/Users/AhmedBadwe/Downloads/تقرير_تحليل_القوى_العاملة_التفاعلي_WO-HR-001 (2).xlsx" class="px-4 py-2 rounded-xl bg-dark-850 hover:bg-dark-800 border border-white/10 text-slate-200 text-xs font-semibold transition-all flex items-center gap-2">
+            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            فتح ملف الإكسيل التفاعلي (.xlsx)
+          </a>
+        </div>
+      </div>
+
+      <!-- DASHBOARD KPI CARDS -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
+        <div class="glass-card p-4 rounded-2xl border-cyan-500/20 glow-cyan">
+          <span class="text-xs text-slate-400 block mb-1">إجمالي الكوادر</span>
+          <span class="text-2xl sm:text-3xl font-black text-white mono">96</span>
+          <span class="text-[11px] text-cyan-400 block mt-1 font-mono">100% عينة القوى</span>
+        </div>
+        <div class="glass-card p-4 rounded-2xl">
+          <span class="text-xs text-slate-400 block mb-1">الموظفون الرسميون</span>
+          <span class="text-2xl sm:text-3xl font-black text-emerald-400 mono">75</span>
+          <span class="text-[11px] text-slate-400 block mt-1 font-mono">78.1% كادر رسمي</span>
+        </div>
+        <div class="glass-card p-4 rounded-2xl">
+          <span class="text-xs text-slate-400 block mb-1">بند الأجور والعقود</span>
+          <span class="text-2xl sm:text-3xl font-black text-amber-400 mono">21</span>
+          <span class="text-[11px] text-slate-400 block mt-1 font-mono">21.9% عقود/تشغيل</span>
+        </div>
+        <div class="glass-card p-4 rounded-2xl">
+          <span class="text-xs text-slate-400 block mb-1">جامعي وماجستير</span>
+          <span class="text-2xl sm:text-3xl font-black text-violet-400 mono">50</span>
+          <span class="text-[11px] text-slate-400 block mt-1 font-mono">52.1% تعليم عالٍ</span>
+        </div>
+        <div class="glass-card p-4 rounded-2xl">
+          <span class="text-xs text-slate-400 block mb-1">حملة الثانوية والدبلوم</span>
+          <span class="text-2xl sm:text-3xl font-black text-blue-400 mono">42</span>
+          <span class="text-[11px] text-slate-400 block mt-1 font-mono">43.8% مسار تقني</span>
+        </div>
+        <div class="glass-card p-4 rounded-2xl">
+          <span class="text-xs text-slate-400 block mb-1">التوزيع النوعي</span>
+          <span class="text-xl sm:text-2xl font-black text-slate-200 mono">84M / 12F</span>
+          <span class="text-[11px] text-slate-400 block mt-1 font-mono">87.5% ذكر • 12.5% أنثى</span>
+        </div>
+      </div>
+
+      <!-- DASHBOARD INTERACTIVE TABS -->
+      <div class="glass-card rounded-3xl p-6 sm:p-8">
+        
+        <!-- Tab Buttons -->
+        <div class="flex flex-wrap items-center gap-2 border-b border-white/10 pb-4 mb-6" id="dashboard-tabs">
+          <button onclick="switchTab('tab-education')" id="btn-tab-education" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-cyan-500 text-dark-950 transition-all">
+            1. الهرم التعليمي والتأهيلي
+          </button>
+          <button onclick="switchTab('tab-departments')" id="btn-tab-departments" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white/5 text-slate-300 hover:bg-white/10 transition-all">
+            2. توزيع الكوادر على الإدارات
+          </button>
+          <button onclick="switchTab('tab-secondary')" id="btn-tab-secondary" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white/5 text-slate-300 hover:bg-white/10 transition-all">
+            3. تحليل حملة الثانوية والمسارات (24 موظف)
+          </button>
+          <button onclick="switchTab('tab-proptech')" id="btn-tab-proptech" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white/5 text-slate-300 hover:bg-white/10 transition-all">
+            4. مشروع تحليل عقارات المنيا (Proptech)
+          </button>
+        </div>
+
+        <!-- TAB CONTENT 1: EDUCATION -->
+        <div id="tab-education" class="tab-pane">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 class="text-lg font-bold text-white mb-2">توزيع الكوادر حسب المستوى التعليمي</h3>
+              <p class="text-xs text-slate-400 leading-relaxed mb-6">
+                يكشف التحليل أن الكوادر الحاصلة على البكالوريوس والدراسات العليا تمثل أكثر من 52% من حجم القوى العاملة، بينما تشكل الثانوية العامة والدبلومات 43.8%، مما يتيح فرصاً واسعة لإعادة التدريب التحويلي والتمكين الإداري.
+              </p>
+
+              <!-- Progress Bars -->
+              <div class="space-y-4">
+                <div>
+                  <div class="flex justify-between text-xs font-semibold mb-1">
+                    <span class="text-slate-200">بكالوريوس (42 موظف)</span>
+                    <span class="mono text-cyan-400">43.8%</span>
+                  </div>
+                  <div class="w-full h-3 bg-dark-950 rounded-full overflow-hidden border border-white/5">
+                    <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full" style="width: 43.8%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs font-semibold mb-1">
+                    <span class="text-slate-200">ثانوية عامة وما يعادلها (24 موظف)</span>
+                    <span class="mono text-emerald-400">25.0%</span>
+                  </div>
+                  <div class="w-full h-3 bg-dark-950 rounded-full overflow-hidden border border-white/5">
+                    <div class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full" style="width: 25%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs font-semibold mb-1">
+                    <span class="text-slate-200">دبلوم فني ومتوسط (18 موظف)</span>
+                    <span class="mono text-amber-400">18.8%</span>
+                  </div>
+                  <div class="w-full h-3 bg-dark-950 rounded-full overflow-hidden border border-white/5">
+                    <div class="h-full bg-gradient-to-r from-amber-500 to-orange-400 rounded-full" style="width: 18.8%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs font-semibold mb-1">
+                    <span class="text-slate-200">ماجستير ودراسات عليا (8 موظفين)</span>
+                    <span class="mono text-violet-400">8.3%</span>
+                  </div>
+                  <div class="w-full h-3 bg-dark-950 rounded-full overflow-hidden border border-white/5">
+                    <div class="h-full bg-gradient-to-r from-violet-500 to-purple-400 rounded-full" style="width: 8.3%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs font-semibold mb-1">
+                    <span class="text-slate-200">متوسط وكفاءة وابتدائي (4 موظفين)</span>
+                    <span class="mono text-slate-400">4.1%</span>
+                  </div>
+                  <div class="w-full h-3 bg-dark-950 rounded-full overflow-hidden border border-white/5">
+                    <div class="h-full bg-slate-600 rounded-full" style="width: 4.1%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Strategic Insights Card -->
+            <div class="bg-dark-900/90 p-6 rounded-2xl border border-white/10">
+              <h4 class="text-sm font-bold text-cyan-300 mb-3 flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                الاستنتاجات الاستراتيجية من التحليل
+              </h4>
+              <ul class="space-y-3 text-xs text-slate-300 leading-relaxed list-disc list-inside">
+                <li><strong class="text-white">كتلة العمليات الميدانية:</strong> يتركز أغلب حملة الدبلومات والثانوية في إدارات الخط الأول كالبلاغات (940) ومأموري العمليات والخدمات الخارجية.</li>
+                <li><strong class="text-white">القيادات التخصصية:</strong> حملة الماجستير (8 موظفين) يتركزون في الوكالة المساعدة ومكتب الوكيل وإدارة الإعلام ووحدات الجودة.</li>
+                <li><strong class="text-white">الاستقرار الوظيفي:</strong> ارتفاع نسبة الموظف الرسمي (78.1%) يعطي استقراراً تشغيلياً عالياً للمنظومة مع مرونة في عقود البنود (21.9%).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB CONTENT 2: DEPARTMENTS -->
+        <div id="tab-departments" class="tab-pane hidden">
+          <h3 class="text-lg font-bold text-white mb-2">توزيع الكوادر عبر الإدارات الحيوية (Top 8 Divisions)</h3>
+          <p class="text-xs text-slate-400 mb-6">مصفوفة توزيع الموظفين الـ 96 على الإدارات التشغيلية والخدمية.</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-dark-900 p-4 rounded-xl border border-white/10">
+              <span class="text-xs text-slate-400 block">إدارة العمليات والبلاغات 940</span>
+              <span class="text-2xl font-black text-cyan-400 mono">25 موظف</span>
+              <span class="text-[11px] text-slate-500 block mt-1 font-mono">26.0% من القوى العاملة</span>
+            </div>
+            <div class="bg-dark-900 p-4 rounded-xl border border-white/10">
+              <span class="text-xs text-slate-400 block">الإدارة العامة لتجربة العميل</span>
+              <span class="text-2xl font-black text-emerald-400 mono">14 موظف</span>
+              <span class="text-[11px] text-slate-500 block mt-1 font-mono">14.6% من القوى العاملة</span>
+            </div>
+            <div class="bg-dark-900 p-4 rounded-xl border border-white/10">
+              <span class="text-xs text-slate-400 block">الفعاليات والتواصل المؤسسي</span>
+              <span class="text-2xl font-black text-violet-400 mono">10 موظفين</span>
+              <span class="text-[11px] text-slate-500 block mt-1 font-mono">10.4% من القوى العاملة</span>
+            </div>
+            <div class="bg-dark-900 p-4 rounded-xl border border-white/10">
+              <span class="text-xs text-slate-400 block">الإدارة العامة للإعلام</span>
+              <span class="text-2xl font-black text-amber-400 mono">9 موظفين</span>
+              <span class="text-[11px] text-slate-500 block mt-1 font-mono">9.4% من القوى العاملة</span>
+            </div>
+            <div class="bg-dark-900 p-4 rounded-xl border border-white/10">
+              <span class="text-xs text-slate-400 block">المشاركة المجتمعية</span>
+              <span class="text-2xl font-black text-blue-400 mono">9 موظفين</span>
+              <span class="text-[11px] text-slate-500 block mt-1 font-mono">9.4% من القوى العاملة</span>
+            </div>
+            <div class="bg-dark-900 p-4 rounded-xl border border-white/10">
+              <span class="text-xs text-slate-400 block">الخدمات الخارجية (الأمن العام 911)</span>
+              <span class="text-2xl font-black text-teal-400 mono">9 موظفين</span>
+              <span class="text-[11px] text-slate-500 block mt-1 font-mono">9.4% من القوى العاملة</span>
+            </div>
+            <div class="bg-dark-900 p-4 rounded-xl border border-white/10">
+              <span class="text-xs text-slate-400 block">إدارة العناية بالعملاء</span>
+              <span class="text-2xl font-black text-purple-400 mono">8 موظفين</span>
+              <span class="text-[11px] text-slate-500 block mt-1 font-mono">8.3% من القوى العاملة</span>
+            </div>
+            <div class="bg-dark-900 p-4 rounded-xl border border-white/10">
+              <span class="text-xs text-slate-400 block">الوكالة المساعدة ومكتب الوكيل</span>
+              <span class="text-2xl font-black text-rose-400 mono">6 موظفين</span>
+              <span class="text-[11px] text-slate-500 block mt-1 font-mono">6.3% من القوى العاملة</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB CONTENT 3: SECONDARY CAREERS -->
+        <div id="tab-secondary" class="tab-pane hidden">
+          <h3 class="text-lg font-bold text-white mb-2">تحليل مسارات حملة الشهادة الثانوية وما يعادلها (24 كادر)</h3>
+          <p class="text-xs text-slate-400 mb-6">
+            تسليط الضوء على هذه الفئة المستهدفة في Sheet 4 لتحديد مسمياتهم الوظيفية الحالية وفرص الترقية والتسكين الإداري.
+          </p>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-right text-xs text-slate-300 border-collapse">
+              <thead>
+                <tr class="bg-dark-900 text-slate-400 border-b border-white/10 font-bold">
+                  <th class="p-3">م</th>
+                  <th class="p-3">المسمى الوظيفي الحالي</th>
+                  <th class="p-3">الإدارة الحالية</th>
+                  <th class="p-3">المؤهل المسجل</th>
+                  <th class="p-3">التوصية التحليلية</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/5">
+                <tr class="hover:bg-white/5">
+                  <td class="p-3 mono">1</td>
+                  <td class="p-3 font-semibold text-white">مندوب الأمانة لدى الأمن العام 911</td>
+                  <td class="p-3">إدارة الخدمات الخارجية</td>
+                  <td class="p-3 text-cyan-300">ثانوية عامة + دورات حاسب</td>
+                  <td class="p-3 text-emerald-400">تثبيت وتطوير في التنسيق الأمني الرقمي</td>
+                </tr>
+                <tr class="hover:bg-white/5">
+                  <td class="p-3 mono">2</td>
+                  <td class="p-3 font-semibold text-white">رئيس قسم الإتصالات</td>
+                  <td class="p-3">إدارة الخدمات الخارجية</td>
+                  <td class="p-3 text-cyan-300">ثانوية عامة</td>
+                  <td class="p-3 text-emerald-400">خبرة قيادية ميدانية ممتازة</td>
+                </tr>
+                <tr class="hover:bg-white/5">
+                  <td class="p-3 mono">3</td>
+                  <td class="p-3 font-semibold text-white">موظف تلقي البلاغات (940)</td>
+                  <td class="p-3">إدارة العمليات والبلاغات</td>
+                  <td class="p-3 text-cyan-300">ثانوية عامة</td>
+                  <td class="p-3 text-amber-400">مسار خدمة عملاء وسرعة استجابة</td>
+                </tr>
+                <tr class="hover:bg-white/5">
+                  <td class="p-3 mono">4</td>
+                  <td class="p-3 font-semibold text-white">فني اتصالات ومأمور عمليات</td>
+                  <td class="p-3">إدارة العمليات والبلاغات</td>
+                  <td class="p-3 text-cyan-300">ثانوية صناعية</td>
+                  <td class="p-3 text-emerald-400">كفاءة فنية متطابقة مع المهام</td>
+                </tr>
+                <tr class="hover:bg-white/5">
+                  <td class="p-3 mono">5</td>
+                  <td class="p-3 font-semibold text-white">مدخل بيانات ومسجل معلومات</td>
+                  <td class="p-3">الوكالة المساعدة ومكتب الوكيل</td>
+                  <td class="p-3 text-cyan-300">ثانوية عامة</td>
+                  <td class="p-3 text-violet-400">تأهيل لأتمتة وأرشفة إلكترونية متقدمة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB CONTENT 4: PROPTECH -->
+        <div id="tab-proptech" class="tab-pane hidden">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold mb-3 border border-emerald-500/20">
+                🏢 Minya Proptech Market Analyzer
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">منظومة تحليل بيانات السوق العقاري بالمنيا</h3>
+              <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                نموذج تحليلي تفاعلي مخصص لدراسة مؤشرات أسعار العقارات، وحساب العائد الاستثماري (ROI)، وتحليل فئات المساحات السكنية والتجارية لمساعدة المستثمرين والمطورين على اتخاذ قرارات تسعير دقيقة.
+              </p>
+              <ul class="space-y-2 text-xs text-slate-400 list-disc list-inside mb-6">
+                <li>تحليل متوسط سعر المتر في الأحياء الرئيسية (طه حسين، شلبي، دماريس، أرض سلطان).</li>
+                <li>حساب مصفوفة العائد الإيجاري الصافي السنوي (Cap Rate).</li>
+                <li>تقارير تفاعلية فورية ومؤشرات حساسية المخاطر الاستثمارية.</li>
+              </ul>
+              <a href="Minya-Proptech-Analyzer-بالتقرير-المفعل.html" target="_blank" class="px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-dark-950 font-bold text-xs inline-flex items-center gap-2 transition-all">
+                استعراض أداة تحليل العقارات التفاعلية ↗
+              </a>
+            </div>
+
+            <div class="bg-dark-900 p-6 rounded-2xl border border-white/10 text-center">
+              <div class="w-16 h-16 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto mb-4 border border-emerald-500/20">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              </div>
+              <h4 class="text-sm font-bold text-white mb-1">دقة النمذجة المالية</h4>
+              <p class="text-xs text-slate-400 max-w-xs mx-auto">
+                ربط مصفوفات إكسيل المتقدمة بالواجهات التفاعلية (HTML/JS) لعرض المؤشرات في زمن حقيقي.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 🎬 SECTION 2: EMBEDDED REELS & VIDEO SHOWCASE -->
+  <!-- ========================================== -->
+  <section id="anime-reels" class="py-20 border-b border-white/5 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-violet-500/10 text-violet-400 text-xs font-bold mono uppercase tracking-wider mb-2 border border-violet-500/20">
+            🎬 Flagship Cinematic Reels • 9:16
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black text-white">
+            سلسلة حكايات الأحلام — السرد السينمائي بنمط الأنمي (8K)
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+            فيديوهات ريلز منتجة برمجياً عبر Remotion وأوامر ماكوتو شينكاي وغيبلي مع هندسة صوتية -14.7 LUFS. انقر لمشاهدة الفيديو مباشرة!
+          </p>
+        </div>
+
+        <span class="text-xs font-mono text-slate-400 bg-white/5 px-3 py-1 rounded-lg border border-white/10 self-start md:self-auto">
+          34 Reels Produced • 1080x1920
+        </span>
+      </div>
+
+      <!-- REELS GRID (Cinematic Stories) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Reel 1: White Quilt (Flagship) -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-violet-500/50 transition-all group">
+          <div class="relative aspect-reel bg-dark-900 overflow-hidden cursor-pointer" onclick="openVideoModal('Portfolio_Reels/01_Cinematic_Anime_Stories/TalesOfDreams_2026-09-22_white_quilt.mp4', 'اللحاف الأبيض وصلاة العصر')">
+            <img src="Portfolio_Reels/01_Cinematic_Anime_Stories/TalesOfDreams_2026-09-22_white_quilt.jpg" alt="White Quilt Reel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-black/30 flex flex-col justify-between p-4">
+              <span class="self-end px-2 py-0.5 rounded bg-violet-600/90 text-white font-mono text-[10px] font-bold">● FLAGSHIP</span>
+              <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md self-center flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-violet-600 transition-all shadow-xl">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <div>
+                <span class="text-xs text-violet-300 font-mono block">TalesOfDreams • 82s</span>
+                <span class="text-sm font-bold text-white block">اللحاف الأبيض وصلاة العصر</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-3.5 bg-dark-900/80 border-t border-white/5 flex items-center justify-between text-xs">
+            <span class="mono text-slate-400">10.08 MB (وفر 89%)</span>
+            <span class="text-emerald-400 font-semibold font-mono">1080p • 30fps</span>
+          </div>
+        </div>
+
+        <!-- Reel 2: Three Floors -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-violet-500/50 transition-all group">
+          <div class="relative aspect-reel bg-dark-900 overflow-hidden cursor-pointer" onclick="openVideoModal('Portfolio_Reels/01_Cinematic_Anime_Stories/TalesOfDreams_2026-09-21_three_floors.mp4', 'الأدوار الثلاثة والارتقاء')">
+            <img src="Portfolio_Reels/01_Cinematic_Anime_Stories/TalesOfDreams_2026-09-21_three_floors.jpg" alt="Three Floors Reel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-black/30 flex flex-col justify-between p-4">
+              <span class="self-end px-2 py-0.5 rounded bg-blue-600/90 text-white font-mono text-[10px] font-bold">● 4 PLATFORMS</span>
+              <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md self-center flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-violet-600 transition-all shadow-xl">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <div>
+                <span class="text-xs text-violet-300 font-mono block">TalesOfDreams • 80s</span>
+                <span class="text-sm font-bold text-white block">الأدوار الثلاثة والارتقاء</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-3.5 bg-dark-900/80 border-t border-white/5 flex items-center justify-between text-xs">
+            <span class="mono text-slate-400">12.92 MB</span>
+            <span class="text-emerald-400 font-semibold font-mono">1080p • 30fps</span>
+          </div>
+        </div>
+
+        <!-- Reel 3: Holy Kaaba -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-violet-500/50 transition-all group">
+          <div class="relative aspect-reel bg-dark-900 overflow-hidden cursor-pointer" onclick="openVideoModal('Portfolio_Reels/01_Cinematic_Anime_Stories/TalesOfDreams_2026-09-20_kaaba.mp4', 'الكعبة المشرفة وأنوار الهداية')">
+            <img src="Portfolio_Reels/01_Cinematic_Anime_Stories/TalesOfDreams_2026-09-20_kaaba.jpg" alt="Kaaba Reel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-black/30 flex flex-col justify-between p-4">
+              <span class="self-end px-2 py-0.5 rounded bg-emerald-600/90 text-white font-mono text-[10px] font-bold">● SPIRITUAL ARC</span>
+              <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md self-center flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-violet-600 transition-all shadow-xl">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <div>
+                <span class="text-xs text-violet-300 font-mono block">TalesOfDreams • 75s</span>
+                <span class="text-sm font-bold text-white block">الكعبة المشرفة وأنوار الهداية</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-3.5 bg-dark-900/80 border-t border-white/5 flex items-center justify-between text-xs">
+            <span class="mono text-slate-400">9.31 MB</span>
+            <span class="text-emerald-400 font-semibold font-mono">1080p • 30fps</span>
+          </div>
+        </div>
+
+        <!-- Reel 4: Strawberry Dress -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-violet-500/50 transition-all group">
+          <div class="relative aspect-reel bg-dark-900 overflow-hidden cursor-pointer" onclick="openVideoModal('Portfolio_Reels/01_Cinematic_Anime_Stories/TalesOfDreams_2026-09-18_strawberry_dress.mp4', 'فستان الفراولة وشفرة الحلم')">
+            <img src="Portfolio_Reels/01_Cinematic_Anime_Stories/TalesOfDreams_2026-09-18_strawberry_dress.jpg" alt="Strawberry Dress Reel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-black/30 flex flex-col justify-between p-4">
+              <span class="self-end px-2 py-0.5 rounded bg-rose-600/90 text-white font-mono text-[10px] font-bold">● NARRATIVE</span>
+              <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md self-center flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-violet-600 transition-all shadow-xl">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <div>
+                <span class="text-xs text-violet-300 font-mono block">TalesOfDreams • 78s</span>
+                <span class="text-sm font-bold text-white block">فستان الفراولة وشفرة الحلم</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-3.5 bg-dark-900/80 border-t border-white/5 flex items-center justify-between text-xs">
+            <span class="mono text-slate-400">10.39 MB</span>
+            <span class="text-emerald-400 font-semibold font-mono">1080p • 30fps</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 🧪 SECTION 3: AI WHITEBOARD & SCIENCE REELS -->
+  <!-- ========================================== -->
+  <section id="science-reels" class="py-20 border-b border-white/5 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 text-xs font-bold mono uppercase tracking-wider mb-2 border border-emerald-500/20">
+            🧪 AI Whiteboard Studio • 9:16
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black text-white">
+            ريلز العلوم والسبورة التفاعلية — رسوم متجهة ومناطق آمنة
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+            سلسلة فيديوهات تعليمية وسيناريوهات سريعة بخطافات احترافية، مع تفريغ 320 بكسل سفلية لتفادي أزرار واجهات TikTok وReels.
+          </p>
+        </div>
+
+        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-lg border border-emerald-500/20 self-start md:self-auto">
+          690+ Subtitles / Episode
+        </span>
+      </div>
+
+      <!-- REELS GRID (Science & Whiteboard) -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+        <!-- Science Reel 1 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-emerald-500/50 transition-all p-4">
+          <div class="aspect-reel bg-dark-900 rounded-xl overflow-hidden relative mb-4">
+            <video class="w-full h-full object-cover" controls preload="metadata">
+              <source src="Portfolio_Reels/02_AI_Whiteboard_Science/final_ep05_redox_reactions_short_1_مفهوم.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="text-xs font-mono text-emerald-400 block mb-1">الحلقة 05 • تفاعلات الأكسدة والاختزال</span>
+          <h4 class="text-sm font-bold text-white mb-2">المفهوم الإلكتروني الحديث والتقليدي</h4>
+          <p class="text-xs text-slate-400 leading-normal">
+            شرح تفاعلي مرئي بمقارنة بصرية بين احتراق المغنسيوم وصدأ الحديد مع ترجمة متزامنة بالمللي ثانية.
+          </p>
+        </div>
+
+        <!-- Science Reel 2 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-emerald-500/50 transition-all p-4">
+          <div class="aspect-reel bg-dark-900 rounded-xl overflow-hidden relative mb-4">
+            <video class="w-full h-full object-cover" controls preload="metadata">
+              <source src="Portfolio_Reels/02_AI_Whiteboard_Science/final_ep03_capsaicin_ibnsina_short_1_مفهوم.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="text-xs font-mono text-emerald-400 block mb-1">الحلقة 03 • الكيمياء الحيوية</span>
+          <h4 class="text-sm font-bold text-white mb-2">الكابسيسين وسر حرارة الفلفل وطب ابن سينا</h4>
+          <p class="text-xs text-slate-400 leading-normal">
+            تحليل آليات مستقبلات الألم وخداع الدماغ الحراري مع ربط الكيمياء بالمفاهيم الطبية التراثية.
+          </p>
+        </div>
+
+        <!-- Science Reel 3 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-emerald-500/50 transition-all p-4">
+          <div class="aspect-reel bg-dark-900 rounded-xl overflow-hidden relative mb-4">
+            <video class="w-full h-full object-cover" controls preload="metadata">
+              <source src="Portfolio_Reels/02_AI_Whiteboard_Science/final_ep04_chemical_reactions_short_1_مفهوم.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="text-xs font-mono text-emerald-400 block mb-1">الحلقة 04 • التفاعلات الكيميائية</span>
+          <h4 class="text-sm font-bold text-white mb-2">سر طاقة الروابط وكسر وتكوين الجزيئات</h4>
+          <p class="text-xs text-slate-400 leading-normal">
+            رسوم متحركة متجهة (SVG) توضح مستويات الطاقة وتغيرات الإنثالبي في تفاعلات التفكك والإحلال.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- ⚡ SECTION 4: MEDIA AUTOMATION & FFmpeg -->
+  <!-- ========================================== -->
+  <section id="automation" class="py-20 border-b border-white/5 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-bold mb-3 border border-cyan-500/20 font-mono">
+              ⚡ Multi-Platform Automation
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black text-white mb-4">
+              من الفكرة إلى النشر الفوري: خط إنتاج مؤتمت بنسبة 100%
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
+              طورت خط أنابيب أتمتة متكامل يعتمد على بايثون ومحرك Remotion وFFmpeg. يقوم النظام بضغط الفيديو من قرابة <strong>95 ميجابايت إلى 10 ميجابايت (توفير 89.4%)</strong> مع الحفاظ على أعلى نقاء للبث على الأجهزة المحمولة، ثم رفعه ونشره تلقائياً في نفس اللحظة عبر 4 منصات مع توثيق الروابط في قاعدة بيانات مركزية.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 text-xs font-mono">
+              <div class="bg-dark-900 p-3 rounded-xl border border-white/5">
+                <span class="text-slate-400 block text-[10px]">المنصات المدعومة</span>
+                <span class="text-cyan-300 font-bold">YouTube Shorts • IG Reels • TikTok • FB Reels</span>
+              </div>
+              <div class="bg-dark-900 p-3 rounded-xl border border-white/5">
+                <span class="text-slate-400 block text-[10px]">معيار الصوت المحقق</span>
+                <span class="text-emerald-400 font-bold">-14.7 LUFS Integrated • -1.0 dBTP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Code / Terminal Card -->
+          <div class="bg-dark-950 p-5 rounded-2xl border border-white/10 font-mono text-xs">
+            <div class="flex items-center gap-2 border-b border-white/10 pb-3 mb-4">
+              <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+              <span class="text-slate-500 text-[11px] mr-2">pipeline_execution.log — V2</span>
+            </div>
+            <pre class="text-slate-300 overflow-x-auto text-[11px] leading-relaxed">
+<span class="text-cyan-400">[INFO]</span> Input: TalesOfDreams_white_quilt_orig.mp4 (94.73 MB)
+<span class="text-violet-400">[FFMPEG]</span> Applying 2-pass CRF 23 + Audio High-Pass 75Hz...
+<span class="text-emerald-400">[SUCCESS]</span> Compressed size: 10.08 MB (Saved 89.4% payload)
+<span class="text-cyan-400">[PUBLISH]</span> Dispatching to 4 platforms simultaneously:
+  ✓ YouTube Shorts: https://youtu.be/tGuelWwFPWg
+  ✓ Facebook Reels: Published (صفحة طبولوجية الزمن)
+  ✓ Instagram Reels: https://www.instagram.com/reel/DdmrfZIsqBA/
+  ✓ TikTok Studio: 100% Published
+<span class="text-amber-400">[CENTRAL_LOG]</span> Record appended to published_videos.json
+            </pre>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER & CONTACT -->
+  <footer class="py-12 border-t border-white/5 bg-dark-950 text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 class="text-lg font-bold text-white mb-2">Ahmed El-Badawy Aboghara</h3>
+      <p class="text-xs text-slate-400 mb-6 font-mono">
+        newgoodman8136@gmail.com • +20 112 181 4358 • Cairo / Minya, Egypt
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold">
+        <a href="https://www.linkedin.com/in/ahmedbadwe-abdelrahim-812332189" target="_blank" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-blue-400 transition-all">
+          LinkedIn Profile ↗
+        </a>
+        <a href="executive_resume_interactive_print_ready.html" target="_blank" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-cyan-400 transition-all">
+          Executive Resume (Print/PDF) ↗
+        </a>
+        <a href="https://drive.google.com/drive/folders/1cbWgeVWc-UtrTsbgrhTIijmBhN5KlFUI?usp=sharing" target="_blank" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-emerald-400 transition-all">
+          Full 34-Reels Google Drive Folder ↗
+        </a>
+      </div>
+
+      <p class="text-[11px] text-slate-600 mt-8 font-mono">
+        © 2026 Ahmed El-Badawy. Engineered with precision for Data Analytics, BI, and Media Excellence.
+      </p>
+    </div>
+  </footer>
+
+  <!-- VIDEO MODAL PLAYER -->
+  <div id="video-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl hidden flex items-center justify-center p-4">
+    <div class="relative w-full max-w-sm bg-dark-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl flex flex-col">
+      <!-- Modal Header -->
+      <div class="p-4 border-b border-white/10 flex items-center justify-between bg-dark-950">
+        <h4 id="modal-video-title" class="text-xs font-bold text-white truncate max-w-[240px]">مشغل الفيديو</h4>
+        <button onclick="closeVideoModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-sm cursor-pointer transition-all">
+          ✕
+        </button>
+      </div>
+
+      <!-- Video Canvas -->
+      <div class="aspect-reel bg-black flex items-center justify-center">
+        <video id="modal-video-element" class="w-full h-full object-contain" controls autoplay playsinline>
+          <source id="modal-video-source" src="" type="video/mp4">
+          متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-3 bg-dark-950 text-center text-[11px] font-mono text-slate-400 border-t border-white/5 flex items-center justify-between">
+        <span class="text-cyan-400">1080x1920 • 9:16</span>
+        <span class="text-emerald-400">-14.7 LUFS Verified</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT FOR INTERACTION -->
+  <script>
+    // Tab Switching for BI Dashboard
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-cyan-500', 'text-dark-950');
+        btn.classList.add('bg-white/5', 'text-slate-300');
+      });
+
+      const activePane = document.getElementById(tabId);
+      if (activePane) activePane.classList.remove('hidden');
+
+      const activeBtn = document.getElementById('btn-' + tabId);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-white/5', 'text-slate-300');
+        activeBtn.classList.add('bg-cyan-500', 'text-dark-950');
+      }
+    }
+
+    // Modal Video Player Controls
+    function openVideoModal(videoSrc, title) {
+      const modal = document.getElementById('video-modal');
+      const video = document.getElementById('modal-video-element');
+      const titleElem = document.getElementById('modal-video-title');
+      
+      titleElem.textContent = title || 'مشاهدة الفيديو';
+      video.src = videoSrc;
+      video.load();
+      video.play().catch(e => console.log('Autoplay prevented', e));
+      modal.classList.remove('hidden');
+    }
+
+    function closeVideoModal() {
+      const modal = document.getElementById('video-modal');
+      const video = document.getElementById('modal-video-element');
+      video.pause();
+      video.src = "";
+      modal.classList.add('hidden');
+    }
+
+    // Close on click outside modal canvas
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('video-modal');
+      if (e.target === modal) {
+        closeVideoModal();
+      }
+    });
+  </script>
+</body>
+</html>
